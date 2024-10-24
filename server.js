@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 // MongoDB Connection
 mongoose.set("strictQuery", false);
 
-const mongoURI = "mongodb://localhost:27017/word_meaning";
+// const mongoURI = "mongodb://localhost:27017/word_meaning";
+const mongoURI = "mongodb+srv://pathakharsh9644:1K8EtlBChnwuQ16V@cluster0.cw3sl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on("error", (err) => {
@@ -21,7 +22,7 @@ mongoose.connection.on("error", (err) => {
   process.exit(1);
 });
 mongoose.connection.once("connected", () => {
-  console.log(`Successfully connected to the database: ${mongoURI}`);
+  console.log(`Successfully connected to the database`);
 });
 
 const routes = require("./src/routes");
